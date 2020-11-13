@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">        
+        <title>OpenAQ</title>
+        <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+    </head>
+    <body>
+        <nav>
+            <a href="/" class="brand"><span>OpenAQ</span></a>
+      
+            <!-- responsive-->
+            <input id="bmenub" type="checkbox" class="show">
+            <label for="bmenub" class="burger pseudo button">Menu</label>
+      
+            <div class="menu">
+              <a href="/refresh" class="button warning">Refresh</a>
+              <a href="/cities" class="button error">Available Cities</a>
+            </div>
+          </nav>
+          <article class="flex two" style="padding: 3em 1em;">
+            {% block content %}
+            <div id="Intro">
+                <h2>OpenAQ</h2>
+                <p>These are measurements for Los Angeles, Chile</p>
+            </div>
+
+            <div id="cities">
+                {% for record in records %}
+            <!-- prints each tweet -->
+                <p>
+                    {{ record }}
+                </p>
+                {% endfor %}
+            </div>
+            {% endblock %}
+          </article>
+    </body>
+</html>
